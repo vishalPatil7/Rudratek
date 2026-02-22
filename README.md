@@ -449,3 +449,19 @@ const updatedProject = res.data;
 // Delete project
 await api.deleteProject('550e8400-e29b-41d4-a716-446655440000');
 ```
+
+
+---
+
+## 🤖 AI Tool Usage
+
+I used ChatGPT and Claude as supportive tools during development.
+
+They were mainly used to:
+- Review and reason about frontend and backend structure
+- Validate implementation approaches
+- Get a second opinion while debugging and refining the solution
+
+The suggestions were not applied blindly. I adapted, simplified, or rejected them based on the assignment scope and requirements. The focus was to keep the code simple, readable, and appropriate for the problem size, without over-engineering.
+
+All final design and implementation decisions were made intentionally, and the codebase is fully understood end-to-end.
