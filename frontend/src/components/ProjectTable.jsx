@@ -3,7 +3,7 @@ import ProjectRow from "./ProjectRow";
 
 export const ProjectTable = React.memo(({ projects, onSelect }) => {
   return (
-    <div className="rounded-md border border-border overflow-hidden">
+    <div className="rounded-md border border-border overflow-x-auto">
       <table className="w-full text-sm">
         <thead className="bg-muted text-muted-foreground">
           <tr>

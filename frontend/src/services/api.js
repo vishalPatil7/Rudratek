@@ -3,7 +3,7 @@
 // Trade-off: keeps components clean and makes it trivial to mock in tests
 // or swap the base URL.
 
-const BASE = import.meta.env.VITE_API_BASE_URL;
+const BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:3001";
 
 async function request(path, options = {}) {
   const res = await fetch(`${BASE}${path}`, {
