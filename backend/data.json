@@ -1,0 +1,110 @@
+[
+  {
+    "id": "fd5aa27e-8957-4921-a4fc-ce5ab5f33c94",
+    "name": "Website Redesign",
+    "clientName": "Acme Corp",
+    "status": "completed",
+    "startDate": "2025-01-15",
+    "endDate": "2025-06-30",
+    "priority": "high",
+    "createdAt": "2025-01-10T09:00:00.000Z",
+    "updatedAt": "2026-02-20T21:36:07.411Z",
+    "deletedAt": null
+  },
+  {
+    "id": "b2a23e1c-9c7a-4411-904e-ef28d8ce91a1",
+    "name": "Mobile App v2",
+    "clientName": "Beta Ventures",
+    "status": "completed",
+    "startDate": "2025-02-01",
+    "endDate": "2025-08-31",
+    "priority": "medium",
+    "createdAt": "2025-01-20T10:00:00.000Z",
+    "updatedAt": "2026-02-20T20:25:05.248Z",
+    "deletedAt": null
+  },
+  {
+    "id": "b15ccb99-13b0-485f-a913-fe8b34320567",
+    "name": "Data Pipeline Migration",
+    "clientName": "CloudFirst Ltd",
+    "status": "active",
+    "startDate": "2024-11-01",
+    "endDate": "2025-03-31",
+    "priority": "high",
+    "createdAt": "2024-10-28T08:00:00.000Z",
+    "updatedAt": "2026-02-20T21:42:36.439Z",
+    "deletedAt": null
+  },
+  {
+    "id": "40356fc1-604b-41bd-af98-67bad11f1e67",
+    "name": "Brand Identity",
+    "clientName": "Acme Corp",
+    "status": "completed",
+    "startDate": "2024-09-01",
+    "endDate": "2024-12-15",
+    "priority": "low",
+    "createdAt": "2024-08-25T11:00:00.000Z",
+    "updatedAt": "2024-12-16T16:00:00.000Z",
+    "deletedAt": null
+  },
+  {
+    "id": "14d33ca5-2bfd-470b-800c-61847155392c",
+    "name": "API Integration",
+    "clientName": "Delta Systems",
+    "status": "completed",
+    "startDate": "2025-03-01",
+    "endDate": null,
+    "priority": "medium",
+    "createdAt": "2025-02-20T09:30:00.000Z",
+    "updatedAt": "2026-02-20T20:24:57.773Z",
+    "deletedAt": null
+  },
+  {
+    "id": "5091acc1-703d-4a5e-8de6-556866cd0f51",
+    "name": "Vishal",
+    "clientName": "Vishal",
+    "status": "completed",
+    "startDate": "2023-02-20",
+    "endDate": "2024-01-25",
+    "priority": "high",
+    "createdAt": "2026-02-20T19:42:18.234Z",
+    "updatedAt": "2026-02-20T20:26:22.150Z",
+    "deletedAt": "2026-02-20T20:26:22.150Z"
+  },
+  {
+    "id": "5c47a5b4-7b8e-4241-a39a-2085ed1c0e53",
+    "name": "fdhfd",
+    "clientName": "dfghfdhg",
+    "status": "completed",
+    "startDate": "2026-02-21",
+    "endDate": "2026-02-27",
+    "priority": "high",
+    "createdAt": "2026-02-21T08:59:49.642Z",
+    "updatedAt": "2026-02-21T09:00:14.344Z",
+    "deletedAt": "2026-02-21T09:00:14.344Z"
+  },
+  {
+    "id": "64eb89f1-721b-47d4-83f5-12de5c6a322b",
+    "name": "dfgfg",
+    "clientName": "fdghfd",
+    "status": "completed",
+    "startDate": "2026-02-22",
+    "endDate": null,
+    "priority": "medium",
+    "createdAt": "2026-02-22T04:25:49.564Z",
+    "updatedAt": "2026-02-22T04:35:16.770Z",
+    "deletedAt": "2026-02-22T04:35:16.770Z"
+  },
+  {
+    "id": "86988842-429b-40b7-89e7-8454962ca65c",
+    "name": "fsdf",
+    "clientName": "sdfsd",
+    "status": "on_hold",
+    "startDate": "2026-02-22",
+    "endDate": "2026-02-24",
+    "priority": "medium",
+    "createdAt": "2026-02-22T04:35:31.667Z",
+    "updatedAt": "2026-02-22T04:36:08.594Z",
+    "deletedAt": null
+  }
+]
