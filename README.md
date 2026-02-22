@@ -2,30 +2,24 @@
 
 A full-stack React application to track and manage client projects with real-time filtering, status management, and priority tracking. This repository contains both the frontend (Vite/React) and a backend component.
 
----
-
-## ✨ Features
-
-- 📋 **Project List Management** - View, search, filter, and sort projects
-- 🎯 **Status Tracking** - Transition projects through active → on_hold → completed states
-- 🏆 **Priority Levels** - Assign and view project priorities (high, medium, low)
-- 🔍 **Advanced Filtering** - Filter by status, search by name/client, sort by date
-- ⚡ **Real-time Updates** - Optimistic UI updates for instant feedback
-- 🎨 **Responsive Design** - Works seamlessly on desktop and tablet
+🌐 **Live Deployments:**
+- **Frontend:** https://projectflow-cyan.vercel.app/
+- **Backend API:** https://rudratek.onrender.com
 
 ---
-
 ## 🏗️ Technology Stack
 
 **Frontend:**
 - React 18+ with Vite (fast dev server & build)
 - Tailwind CSS (utility-first styling)
+- React Router v7 for navigation
 - React Hooks (custom hooks for state management)
 
 **Backend:**
 - Node.js + Express
 - File-based JSON storage (data.json)
 - RESTful API with standardized responses
+- CORS enabled for cross-origin requests
 
 ---
 
@@ -396,115 +390,33 @@ Soft-delete a project (marks as deleted but retains in database for audit trail)
 }
 ```
 
----
 
-## 🏛️ Backend Architecture
-
-### Clean Separation of Concerns
-
-The backend is organized into focused layers:
-
-- **`server.js`** - Express app setup, middleware (logging, CORS, error handling)
-- **`routes/`** - Route definitions mapping HTTP methods to controllers
-- **`controllers/`** - Business logic and request handling (independent of Express)
-- **`validation.js`** - Business rules and validation constants
-- **`db.js`** - Data persistence layer (queries, CRUD operations)
-- **`config/`** - Configuration from environment variables
-- **`utils/`** - Reusable utilities (validation helpers)
-
-### Key Design Decisions
-
-1. **Controllers are Express-agnostic** - Can be tested without mocking Express, imported elsewhere
-2. **Validation is centralized** - All validation rules in one place, easy to update
-3. **Response format is standardized** - All responses follow the same structure inline in controllers
-4. **Error handling is consistent** - Global error handler + validation error handler in server.js
-5. **Configuration is externalized** - Hardcoded values moved to `config/index.js`
 
 ---
 
 ## 🛠️ Assumptions & Trade-offs
 
-### 1. Architecture (Feature-Sliced vs Centralized)
 
-**Trade-off:** Rather than enforcing a strict "Feature-Sliced Design" (which over-engineers small apps with deep `features/X/components/Y` nesting), we chose a flatter, more approachable structure.
 
-- Reusable "dumb" primitives exist in `src/components/ui`
-- Domain-specific components stay in `src/components`
-- Hooks live in `src/hooks` for easy discovery
-
-### 2. State Management
+### 1. State Management
 
 **Assumption:** The application data requirements are currently centralized to one page (`Index.jsx`). We use a custom hook (`useProjects`) rather than introducing heavy global state managers (Redux, Zustand), keeping the bundle size small.
 
-- Scales well up to 10-20 features
-- Easy to upgrade to global state if needed
-
-### 3. Memoization Optimizations
+### 2. Memoization Optimizations
 
 **Trade-off:** We added `useCallback`, `useMemo`, and `React.memo` to critical list-rendering paths (`Index.jsx` filters and `ProjectRow`). We avoided wrapping *every* primitive component in `React.memo` to prevent unnecessary overhead where re-rendering is already cheap.
 
-### 4. CSS Configuration
 
-**Assumption:** We pruned the `index.css` Tailwind layers to only include variables actively used by this specific app, throwing out unused variables from standard UI library templates.
 
-### 5. Optimistic UI Updates
+### 3. Optimistic UI Updates
 
 **Trade-off:** When updating or deleting projects, the UI updates immediately before the server confirms. This provides better UX but requires the frontend to handle potential rollback errors.
 
-### 6. Soft Deletes
+### 4. Soft Deletes
 
-**Trade-off:** Deleted projects are marked with a `deletedAt` timestamp rather than permanently removed. This enables:
-- Audit trails
-- Accidental delete recovery
-- Data retention compliance
+**Trade-off:** Deleted projects are marked with a `deletedAt` timestamp rather than permanently removed. 
 
-Trade-off: Slightly more complex database queries (always filter `deletedAt = null`)
 
-### 7. File-Based Storage
-
-**Trade-off:** Using JSON file storage instead of a database keeps dependencies minimal and deployment simple, but:
-- ✅ Good for: prototypes, demos, small teams
-- ❌ Not ideal for: concurrent writes, scaling to thousands of records
-- 📈 Upgrade path: Replace `db.js` with MongoDB/PostgreSQL client when needed
-
----
-
-## 🐛 Troubleshooting
-
-### Backend won't start
-- ✅ Check Node.js version: `node --version` (v18+)
-- ✅ Verify port 3001 is not in use: `lsof -i :3001` (macOS/Linux)
-- ✅ Delete `node_modules` and reinstall: `rm -rf node_modules && npm install`
-- ✅ Check for syntax errors: `node server.js` (avoid `npm run dev` to see full error)
-
-### Frontend won't connect to backend
-- ✅ Verify backend is running on port 3001
-- ✅ Check CORS: backend should allow `http://localhost:5173`
-- ✅ Check browser console for fetch errors (Network tab)
-- ✅ Verify `frontend/src/services/api.js` BASE URL is correct
-
-### Projects list is empty
-- ✅ Seed data loads automatically on first run
-- ✅ Check `backend/data.json` exists and has content
-- ✅ Try restarting backend to reload seed data
-- ✅ Open DevTools Network tab to verify API response status
-
-### Status transition failing
-- ✅ Review allowed transitions: active/on_hold ↔ completed (terminal)
-- ✅ Check API response for `allowedTransitions` field
-- ✅ Try invalid transition in API docs to see detailed error
-
-### Port conflicts
-- ✅ Change backend port: `PORT=3002 npm run dev`
-- ✅ Change frontend port: `npm run dev -- --port 5174`
-- ✅ Update `frontend/src/services/api.js` BASE URL if using custom ports
-
-### Data not persisting
-- ✅ Check that `backend/data.json` file exists
-- ✅ Verify write permissions in backend directory
-- ✅ Check for disk space on the machine
-
----
 
 ## 📚 API Client Usage (Frontend)
 
@@ -537,34 +449,3 @@ const updatedProject = res.data;
 // Delete project
 await api.deleteProject('550e8400-e29b-41d4-a716-446655440000');
 ```
-
----
-
-## 🎯 Development Workflow
-
-1. **Make changes** to components in `src/` (frontend) or `controllers/` (backend)
-2. **Test in browser** at `http://localhost:5173` (hot reload enabled)
-3. **Check backend logs** for API errors
-4. **Verify API responses** using browser DevTools Network tab
-5. **Commit changes** when satisfied
-
----
-
-## 📋 Development Checklist
-
-Before committing or deploying:
-
-- [ ] Backend starts without errors: `npm run dev`
-- [ ] Frontend starts without errors: `npm run dev`
-- [ ] All CRUD operations work (Create, Read, Update, Delete)
-- [ ] Status transitions validate correctly
-- [ ] Filters and search work
-- [ ] Error messages are helpful
-- [ ] No console errors in DevTools
-- [ ] Responsive design looks good on mobile
-
----
-
-## 📄 License
-
-This project is provided as-is for educational and development purposes.
