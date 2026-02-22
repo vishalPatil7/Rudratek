@@ -30,34 +30,50 @@ rudratek/
 ├── frontend/
 │   ├── src/
 │   │   ├── components/
-│   │   │   ├── ui/              # Reusable UI primitives
-│   │   │   │   ├── Badge.jsx
-│   │   │   │   ├── Button.jsx
-│   │   │   │   └── Select.jsx
-│   │   │   └── ProjectRow.jsx   # Domain-specific components
+│   │   │   ├── AddNewProject.jsx
+│   │   │   ├── CreateProjectDialog.jsx
+│   │   │   ├── ProjectDetailPanel.jsx
+│   │   │   ├── ProjectFilterBar.jsx
+│   │   │   ├── ProjectRow.jsx
+│   │   │   └── ProjectTable.jsx
+│   │   ├── constants/
+│   │   │   └── projects.js
 │   │   ├── hooks/
-│   │   │   └── useProjects.js   # Main state management hook
-│   │   ├── services/
-│   │   │   └── api.js           # API client wrapper
+│   │   │   └── useProjects.js       # Main state management hook
 │   │   ├── pages/
-│   │   │   └── Index.jsx        # Main dashboard page
-│   │   └── index.css            # Global styles
+│   │   │   ├── Index.jsx            # Main dashboard page
+│   │   │   └── NotFound.tsx
+│   │   ├── services/
+│   │   │   └── api.js               # API client wrapper
+│   │   ├── utils/
+│   │   │   └── date.js
+│   │   ├── App.jsx
+│   │   ├── index.css                # Global styles
+│   │   ├── main.jsx
+│   │   ├── tokens.css
+│   │   ├── assets/
+│   │   └── public/
+│   ├── eslint.config.js
+│   ├── index.html
+│   ├── vite.config.js
 │   ├── package.json
-│   └── vite.config.js
+│   └── README.md
 ├── backend/
 │   ├── config/
-│   │   └── index.js             # Configuration (PORT, CORS, DB_FILE)
+│   │   └── index.js                 # Configuration (PORT, CORS, DB_FILE)
 │   ├── controllers/
-│   │   └── projects.js          # Business logic & request handlers
+│   │   └── projects.js              # Business logic & request handlers
 │   ├── routes/
-│   │   └── projects.js          # Route definitions
+│   │   └── projects.js              # Route definitions
 │   ├── utils/
-│   │   └── validators.js        # Input validation utilities
-│   ├── db.js                    # Database layer (file-based)
-│   ├── validation.js            # Business validation rules
-│   ├── server.js                # Express app setup + middleware
-│   ├── data.json                # Project data store
-│   └── package.json
+│   │   └── validators.js            # Input validation utilities
+│   ├── db.js                        # Database layer (file-based)
+│   ├── validation.js                # Business validation rules
+│   ├── server.js                    # Express app setup + middleware
+│   ├── data.json                    # Project data store
+│   ├── package.json
+│   └── README.md
+├── package.json
 └── README.md
 ```
 
